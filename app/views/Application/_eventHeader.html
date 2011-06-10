@@ -36,7 +36,8 @@
 				<li class="date">${event.date.format('dd MMMM yyyy', 'fr')} (${event.capacity-event.particitationValidated()} places restantes)</li>
 				<li class="place">${event.location != null && !event.location.equals('') ? event.location : 'Lieu à définir' }</li>
 				#{if event.registrationCloded()}
-					<li class="register closed"><li>
+					<li class="register closed"><span title="ouverture 7j avant l'event">Inscription Fermée</span><li>
+					<li  class="register warning">ouverture  : 7j avant l'event</li>
 				#{/if}
 				#{elseif event.registrationURL != null && !event.registrationURL.equals('') }
 					<li class="register"><a href="${event.registrationURL}">Inscription</a><li>

@@ -296,6 +296,13 @@ header {
 	font-size: 18px;
 	font-weight: bold;
 }
+#details .warning {
+	text-transform: lowercase;
+	font-size: 12px;
+	top: 25px;
+	
+}
+
 #details .register a {
 	background: #8fb704;
 	color: #fff;
