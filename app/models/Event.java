@@ -10,6 +10,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -27,10 +28,12 @@ public class Event extends Model {
 
     public String location;
 
+    @Lob
     @MaxSize(2000)
     @Column(length=2000)
     public String description;
 
+    @Lob
     @MaxSize(5000)
     @Column(length=5000)
     public String report;
@@ -41,6 +44,7 @@ public class Event extends Model {
 
     public boolean open;
 
+    @Lob
     @MaxSize(5000)
     @Column(length=5000)
     public String map;
