@@ -14,9 +14,9 @@
 		<article>
 			<div class="member-photo">
 			#{if (speaker.photoUrl)}
-				<img alt="${speaker.fullName}" src="${speaker.photoUrl}">
+				<img width="110" alt="${speaker.fullName}" src="${speaker.photoUrl}">
 			#{/if}#{else}
-				<img alt="${speaker.fullName}" src="${speaker.getGravatar()}">
+				<img width="110" alt="${speaker.fullName}" src="${speaker.getGravatar()}">
 			#{/else}
 			</div>
 			<div>
