@@ -3,6 +3,7 @@ package models;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
@@ -29,7 +30,8 @@ public class Talk extends Model {
     public Set<Tag> tags;
     
     @Lob
-    @MaxSize(1000)
+    @MaxSize(2000)
+    @Column(length=2000)
     public String teaser;
 
     @JsonExclude
