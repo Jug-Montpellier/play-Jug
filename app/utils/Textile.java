@@ -1,7 +1,7 @@
 package utils;
 
-import org.eclipse.mylyn.wikitext.core.parser.MarkupParser;
-import org.eclipse.mylyn.wikitext.textile.core.TextileLanguage;
+import jj.play.org.eclipse.mylyn.wikitext.core.parser.MarkupParser;
+import jj.play.org.eclipse.mylyn.wikitext.textile.core.TextileLanguage;
 
 public class Textile {
 
