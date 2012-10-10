@@ -27,22 +27,17 @@ GET		/eventpartner/{id}						Application.eventPartner
 GET		/speakers								Application.speakers
 GET		/polls								Application.polls
 
-# Deprecated API stuff
-GET		/api/events.{<json|xml>format}			API.listEvents
-GET		/api/members.{<json|xml>format}			API.listMembers
-GET		/api/nextevent.{<json|xml>format}		API.nextEvent
-GET		/api/news.{<json|xml>format}			API.listNews
-
-# API stuff
-GET		/api/def.json										API.definition
-GET		/api/events/all.{<json|xml>format}					API.listEvents
-GET		/api/events/next.{<json|xml>format}					API.nextEvent
-GET		/api/members/all.{<json|xml>format}					API.listMembers
-GET		/api/speakers/all.{<json|xml>format}				API.listSpeakers
-GET		/api/news/all.{<json|xml>format}					API.listNews
-GET		/api/partners/currentyear.{<json|xml>format}		API.currentYearPartners
-GET		/api/partners/pastyears.{<json|xml>format}			API.pastYearPartners
-GET		/api/partners/events.{<json|xml>format}				API.eventPartners
+# API V1
+GET		/api/								controllers.api.API.index
+GET		/api/v1/definition					controllers.api.V1.definition
+GET		/api/v1/events/all          		controllers.api.V1.listEvents
+GET		/api/v1/events/next					controllers.api.V1.nextEvent
+GET		/api/v1/members/all					controllers.api.V1.listMembers
+GET		/api/v1/speakers/all				controllers.api.V1.listSpeakers
+GET		/api/v1/news/all					controllers.api.V1.listNews
+GET		/api/v1/partners/currentyear		controllers.api.V1.currentYearPartners
+GET		/api/v1/partners/pastyears			controllers.api.V1.pastYearPartners
+GET		/api/v1/partners/events				controllers.api.V1.eventPartners
 
 
 # Map static resources from the /app/public folder to the /public path

@@ -1,0 +1,18 @@
+#{extends 'main.html' /}
+#{set title:'API' /}
+
+#{if event}
+	#{include 'Application/_eventHeader.html' /}
+#{/if}
+<section id="members">
+	<h2>JUG API</h2>
+	#{list definitions, as : "definition"}
+		<article>
+			<div>
+			<h3><a href="${definition.url}" target="_blank">${definition.url}</a></h3>
+			<br><br>
+			${definition.description.nl2br()}
+			</div>
+		</article>
+	#{/list}
+</section>
