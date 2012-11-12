@@ -1,3 +1,6 @@
+#{set 'moreScripts'}
+<script src="@{'/public/javascripts/EventBrite.jquery.js'}" type="text/javascript" ></script>
+#{/set}
 <style>
 #main article .speaker
 {
@@ -29,13 +32,13 @@
 	<article>
 		#{if event.partner}
 		<h2>Partenaire</h2>
-		<p>Cet événement est sponsorisé par <a href="@{Application.eventPartner(event.partner.id)}">${event.partner.name}</a>.</p>
+		<p>Cet √©v√©nement est sponsoris√© par <a href="@{Application.eventPartner(event.partner.id)}">${event.partner.name}</a>.</p>
 		#{if event.partner.logoURL}
 		<p align="center"><img src="${event.partner.logoURL}"/></p>
 		#{/if}
 		#{/if}
 		#{if event.report != null && !event.report.equals("")}
-			<h2>Compte rendu de la soirée</h2>
+			<h2>Compte rendu de la soir√©e</h2>
 			${event.report}
 		#{/if}
 		<h2>Programme</h2>
@@ -49,7 +52,7 @@
 			#{/if}
 			</p>
 			#{if talk.speaker}
-			<p>Présenté par <a href="@{Application.member(talk.speaker.id)}">${talk.speaker.fullName}</a></p>
+			<p>Pr√©sent√© par <a href="@{Application.member(talk.speaker.id)}">${talk.speaker.fullName}</a></p>
 			#{/if}
 			<p>${talk.teaser}</p>
 		#{/list}
@@ -59,11 +62,21 @@
 		#{if event.map != null && !event.map.equals("")}
 			${event.map.raw()}
 		#{/if}
+		
+		<h2>Inscription</h2>
+		<a id="inscription"></a>
+		#{if (utils.EventBrite.isEventBrite(event)) }
+		<div style="width:100%; text-align:left;" >
+  			<iframe src="http://www.eventbrite.com/tickets-external?eid=${utils.EventBrite.getId(event)}&ref=etckt" frameborder="0" height="160" width="100%" vspace="0" hspace="0" marginheight="5" marginwidth="5" scrolling="auto" allowtransparency="true"></iframe>
+		</div>
+		#{/if}
 		<h2>After</h2>
 		<p>A la fin de la soirée, une troisième mi-temps sera proposée dans un bar pour continuer à échanger et sympathiser </p>
+		
 		<p>
 		#{include 'Social/_twitterbutton.html' /}
 		</p>
+		
 		<div class="attachments">
 			#{list attachments, as : "attachment"}
 				<a href="@{Application.downloadEventAttachment(event.id, attachment)}">${attachment}</a> 

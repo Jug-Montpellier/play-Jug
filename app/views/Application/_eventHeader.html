@@ -22,7 +22,7 @@
 	<div id="presentation">
 		<h1><a href="@{Application.event(event.id)}">${event.title}</a></h1>
 		#{if event.partner}
-		<h2><a href="@{Application.eventPartner(event.partner.id)}">Cet événement est sponsorisé par ${event.partner.name}</a></h2>
+		<h2><a href="@{Application.eventPartner(event.partner.id)}">Cet &eacute;v&egrave;nement est sponsoris&eacute; par ${event.partner.name}</a></h2>
 		#{/if}
 		<p>
 			${event.description}
@@ -33,18 +33,19 @@
 		#{/if}
 		#{else}
 			<ul id="details">
-				<li class="date">${event.date.format('dd MMMM yyyy', 'fr')} (${event.capacity-event.particitationValidated()} places restantes)</li>
-				<li class="place">${event.location != null && !event.location.equals('') ? event.location : 'Lieu à définir' }</li>
-				#{if event.registrationCloded()}
-					<li class="register closed"><span title="ouverture 7j avant l'event">Inscription Fermée</span><li>
-					<li  class="register warning">ouverture  : 7j avant l'event</li>
-				#{/if}
-				#{elseif event.registrationURL != null && !event.registrationURL.equals('') }
-					<li class="register"><a href="${event.registrationURL}">Inscription</a><li>
-				#{/elseif}
-				#{else}
+				<li class="date">${event.date.format('dd MMMM yyyy', 'fr')} #{if !event.old()} (${event.capacity-event.particitationValidated()} places restantes) #{/if}</li>
+				<li class="place">${event.location != null && !event.location.equals('') ? event.location : 'Lieu a definir' }</li>
+				#{if !event.old()}
+					#{if utils.EventBrite.isEventBrite(event)}
+					<li class="register"><a href="@{Application.event(event.id)}#inscription">Inscription</a><li>
+					#{/if}
+					#{elseif (event.registrationURL == null) || (event.registrationURL.length() == 0)}
 					<li class="register"><a href="/inscription/${event.id}">Inscription</a><li>
-				#{/else}
+					#{/elseif}
+					#{else}
+					<li class="register"><a target="_blank" href="${event.registrationURL}">Inscription</a><li>
+					#{/else}
+				#{/if}
 			</ul>
 		#{/else}
 	</div>

@@ -27,10 +27,11 @@
    partner: ep1
 
  Event(e2):
-   title: Event Two
-   description: Soirée Android
-   date: 2011-06-22
+   title: Soirée Ceylon
+   description: Soirée Ceylon Description
+   date: 2012-10-22
    partner: ep2
+   registrationURL: http://www.eventbrite.fr/event/4618201164
    
  Event(e3):
    title: Event Three
@@ -42,7 +43,14 @@
      title: Event Four
      description: Event Four default description
      date: 2014-01-01
-     
+     registrationURL: http://www.eventbrite.fr/event/4618201164
+
+ Event(e5):
+     title: Soirée ElasticSearch
+     description: Soirée ElasticSearch Description...
+     date: 2012-11-21
+     registrationURL: http://www.eventbrite.fr/event/4825343733
+
  User(u1):
    email: arnaud.castelltort@gmail.com
 

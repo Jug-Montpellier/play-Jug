@@ -122,7 +122,7 @@ public class Event extends Model {
         count = count.valueOf(Participation.find("event.id = ? and status = ?", id, Participation.ParticipationStatus.Confirmed).fetch().size());
         return count;
     }
-
+    
     @Override
     public String toString() {
         return title;
