@@ -33,7 +33,7 @@
 		#{/if}
 		#{else}
 			<ul id="details">
-				<li class="date">${event.date.format('dd MMMM yyyy', 'fr')} #{if !event.old()} (${event.capacity-event.particitationValidated()} places restantes) #{/if}</li>
+				<li class="date">${event.date.format('dd MMMM yyyy', 'fr')}</li>
 				<li class="place">${event.location != null && !event.location.equals('') ? event.location : 'Lieu a definir' }</li>
 				#{if !event.old()}
 					#{if utils.EventBrite.isEventBrite(event)}
