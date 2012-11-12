@@ -32,9 +32,13 @@ GET		/api/								controllers.api.API.index
 GET		/api/v1/definition					controllers.api.V1.definition
 GET		/api/v1/events/all          		controllers.api.V1.listEvents
 GET		/api/v1/events/next					controllers.api.V1.nextEvent
+GET		/api/v1/events/{id}          		controllers.api.V1.getEvent
 GET		/api/v1/members/all					controllers.api.V1.listMembers
+GET		/api/v1/members/{id}				controllers.api.V1.getMember
 GET		/api/v1/speakers/all				controllers.api.V1.listSpeakers
+GET		/api/v1/speakers/{id}				controllers.api.V1.getSpeaker
 GET		/api/v1/news/all					controllers.api.V1.listNews
+GET		/api/v1/news/{id}					controllers.api.V1.getNews
 GET		/api/v1/partners/currentyear		controllers.api.V1.currentYearPartners
 GET		/api/v1/partners/pastyears			controllers.api.V1.pastYearPartners
 GET		/api/v1/partners/events				controllers.api.V1.eventPartners

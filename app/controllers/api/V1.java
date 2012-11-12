@@ -49,11 +49,29 @@ public class V1 extends Controller {
 		List<Speaker> members = Speaker.getMembers();
 		render(members);
 	}
+	
+	@APIDefinition(description = "Get member from its ID", clazz = Speaker.class)
+	public static void getMember(long id) {
+		Speaker s = Speaker.findById(id);
+        if (s == null) {
+        	renderNoResult();
+        }
+		renderJSON(s);
+	}
 
 	@APIDefinition(description = "List all the speakers", clazz = Speaker.class)
 	public static void listSpeakers() {
 		List<Speaker> members = Speaker.getSpeakers();
 		render(members);
+	}
+	
+	@APIDefinition(description = "Get speaker from its ID", clazz = Speaker.class)
+	public static void getSpeaker(long id) {
+		Speaker s = Speaker.findById(id);
+        if (s == null) {
+        	renderNoResult();
+        }
+		renderJSON(s);
 	}
 
 	@APIDefinition(description = "Get the next event", clazz = Event.class)
@@ -61,10 +79,28 @@ public class V1 extends Controller {
 		Event event = Event.next();
 		renderJSONExclusion(event);
 	}
+	
+	@APIDefinition(description = "Get event from its ID", clazz = Event.class)
+	public static void getEvent(long id) {
+        Event event = Event.findById(id);
+        if (event == null) {
+        	renderNoResult();
+        }
+		renderJSONExclusion(event);
+	}
 
 	@APIDefinition(description = "List all the news", clazz = News.class)
 	public static void listNews() {
 		List<News> news = News.allByDate();
+		renderJSON(news);
+	}
+	
+	@APIDefinition(description = "Get news from its ID", clazz = News.class)
+	public static void getNews(long id) {
+        News news = News.findById(id);
+        if (news == null) {
+        	renderNoResult();
+        }
 		renderJSON(news);
 	}
 
@@ -94,5 +130,9 @@ public class V1 extends Controller {
 	 */
 	private static void renderJSONExclusion(Object o) {
 		throw new RenderJsonExclusion(o);
+	}
+	
+	private static void renderNoResult() {
+		renderJSON("{error : 'No result'}");
 	}
 }
